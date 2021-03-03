@@ -1,13 +1,13 @@
 class FavsController < ApplicationController
 
   def index
-    @favs = Fav.all
-    render json: {message: 'Loaded favs', data: @favs}
+    favs = Fav.all
+    render json: {message: 'Loaded favs', data: favs}
   end
 
   def create
-    @fav = Fav.new(like_params)
-    if @fav.save
+    fav = Fav.new(fav_params)
+    if fav.save
       render json: {message: 'Add Car to favs'}
     else
       render json: {error: "Fav Not Saved"}
@@ -15,8 +15,8 @@ class FavsController < ApplicationController
   end
 
   def destroy
-    @fav = Fav.find(params[:id])
-    @fav.destroy
+    fav = Fav.find(params[:id])
+    fav.destroy
     render json: {message: 'Deleted fav'}
   end
 
