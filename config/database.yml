@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: jwt_rails_api_app_production
-  username: jwt_rails_api_app
+  database: sami_api_v1_app_production
+  username: sami_api_v1_app
   password: <%= ENV['JWT_RAILS_API_APP_DATABASE_PASSWORD'] %>
