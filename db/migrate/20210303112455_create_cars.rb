@@ -4,7 +4,6 @@ class CreateCars < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :model
       t.integer :price
-      t.text :image
 
       t.timestamps
     end

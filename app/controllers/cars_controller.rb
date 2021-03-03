@@ -2,11 +2,11 @@ class CarsController < ApplicationController
 
   def index
     @cars = Car.all
-    render json: {message: 'Loaded Cars', cars: @cars}
-    # render json: { status: 'SUCCESS', message: 'Loaded Cars',
-    #   cars: @cars.map { |car|
-    #   car.as_json.merge({ image: rails_blob_url(car.featured_image) })}},
-    # status: :ok
+    # render json: {message: 'Loaded Cars', cars: @cars}
+    render json: { status: 'SUCCESS', message: 'Loaded Cars',
+      cars: @cars.map { |car|
+      car.as_json.merge({ image: rails_blob_url(car.image) })}},
+    status: :ok
   end
 
   def show
