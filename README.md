@@ -26,7 +26,7 @@ The API will expose the following RESTful endpoints.
 | Endpoint                | Functionality                |
 |-------------------------|------------------------------|
 | POST /user              | Signup                       |
-| POST /login             | Signin                       |
+| POST /sessions          | Signin                       |
 | GET /cars               | List all cars                |
 | POST /cars              | Add a new car                |
 | DELETE /cars/:id        | Delete a car                 |
