@@ -8,9 +8,9 @@ class FavsController < ApplicationController
   def create
     fav = Fav.new(fav_params)
     if fav.save
-      render json: {message: 'Add Car to favs'}
+      render json: {message: 'Add Car to favs'}, status: :created
     else
-      render json: {error: "Fav Not Saved"}
+      render json: {error: "Fav Not Saved"}, status: :unprocessable_entity
     end
   end
 
