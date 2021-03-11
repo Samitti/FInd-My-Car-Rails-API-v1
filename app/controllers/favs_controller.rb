@@ -1,4 +1,5 @@
 class FavsController < ApplicationController
+  before_action :authorized  
 
   def index
     favs = Fav.all

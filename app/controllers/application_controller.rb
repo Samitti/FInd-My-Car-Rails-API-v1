@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::API
-  before_action :authorized  
   
   def auth_header_top
     request.headers['Authorization']
