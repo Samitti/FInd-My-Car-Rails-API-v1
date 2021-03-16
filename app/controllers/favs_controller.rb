@@ -5,8 +5,6 @@ class FavsController < ApplicationController
     user = current_user!
     favs = user.favs
     render json: {message: 'Loaded favs', data: favs}
-    # favs = []
-    # favs_total.map{ |fav| favs << fav.car_id }
   end
 
   def create
