@@ -1,0 +1,6 @@
+production:
+  cloud_name: "dkk3hcsvr"
+  api_key: "926366282816664"
+  api_secret: "3TeonKKuRFebThQf6bF31FG_7QI"
+  secure: true
+  cdn_subdomain: true

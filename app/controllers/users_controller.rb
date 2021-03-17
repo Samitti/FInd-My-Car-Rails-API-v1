@@ -3,30 +3,13 @@ class UsersController < ApplicationController
 
   # REGISTER
   def create
-    @user = User.create(user_params)
-    if @user.valid?
-      token = encode_token({user_id: @user.id})
-      render json: {username: @user.username, token: token}
+    @user = User.new(user_params)
+    if @user.save
+      token = AuthenticationTokenService.encode_token({user_id: @user.id})
+      render json: token, status: :created
     else
-      render json: {error: "Invalid username or password"}
+      render json: { error: @user.errors.full_messages.first }, status: :unprocessable_entity
     end
-  end
-
-  # LOGGING IN
-  def login
-    @user = User.find_by(username: params[:username])
-
-    if @user && @user.authenticate(params[:password])
-      token = encode_token({user_id: @user.id})
-      render json: {username: @user.username, token: token}
-    else
-      render json: {error: "Invalid username or password"}
-    end
-  end
-
-
-  def auto_login
-    render json: @user
   end
 
   private
@@ -34,5 +17,4 @@ class UsersController < ApplicationController
   def user_params
     params.permit(:username, :password)
   end
-
 end
